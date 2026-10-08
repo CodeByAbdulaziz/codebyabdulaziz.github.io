@@ -9,6 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='31' font-weight='700' fill='%2338bdf8'%3EAZ%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="analytics.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -76,6 +77,10 @@
     <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><div><p class="eyebrow"><span class="section-number">04</span> CONNECT</p><h2 id="contact-title">Let's build<br><span>something useful.</span></h2><p>You can find my projects and follow my work on GitHub.</p></div><a class="button button-primary" href="https://github.com/CodeByAbdulaziz" target="_blank" rel="noopener noreferrer">Find me on GitHub</a></div></section>
   </main>
 
-  <footer class="container footer"><a class="wordmark" href="#home"><span class="brand-letter">AZ<span>.</span></span><span>Abdulaziz</span></a><p>© <span id="year">2026</span> Abdulaziz</p><a href="#home">Back to top</a></footer>
+  <footer class="container footer"><a class="wordmark" href="#home"><span class="brand-letter">AZ<span>.</span></span><span>Abdulaziz</span></a><p>© <span id="year">2026</span> Abdulaziz</p><div class="footer-links"><a href="privacy.html">Privacy</a><button type="button" data-analytics-preferences aria-controls="analytics-choice" aria-expanded="false" hidden>Analytics choices</button><a href="#home">Back to top</a></div></footer>
+  <section class="analytics-banner" id="analytics-choice" aria-label="Website analytics" hidden>
+    <div class="analytics-copy"><h2>Can I use website analytics?</h2><p>Google Analytics helps me see visits, countries, and which pages people use. It starts only if you accept. <a href="privacy.html">Read about privacy</a>.</p><p class="analytics-status" id="analytics-status" role="status">Analytics is off until you choose.</p></div>
+    <div class="analytics-actions"><button class="button button-outline" type="button" data-analytics-accept>Accept analytics</button><button class="button button-outline" type="button" data-analytics-decline>No thanks</button><button class="analytics-dismiss" type="button" data-analytics-close hidden>Keep my choice</button></div>
+  </section>
 </body>
 </html>

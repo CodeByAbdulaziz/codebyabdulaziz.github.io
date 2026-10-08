@@ -17,8 +17,14 @@ Open `index.html` in a browser. No install or build step is needed.
 - `index.html`: page content
 - `styles.css`: colors and layout
 - `script.js`: menu and navigation
+- `analytics.js`: optional Google Analytics and visitor choices
+- `privacy.html`: privacy information
 - Image files: logo and project screenshots
 
 ## Hosting
 
 GitHub Pages serves the files from the root of the `main` branch.
+
+## Website analytics
+
+Google Analytics runs only on the live HTTPS website after a visitor accepts it. Local previews do not send visits. Visitors can change their choice in the footer.
