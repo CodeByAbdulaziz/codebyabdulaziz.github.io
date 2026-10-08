@@ -2,14 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' https://www.googletagmanager.com https://*.google-analytics.com; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b1220">
-  <meta name="description" content="Abdulaziz's personal portfolio. Python, SQL, Saudi data analysis, dashboards and IoT projects.">
   <title>Abdulaziz | Improve your tech with me</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='31' font-weight='700' fill='%2338bdf8'%3EAZ%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="Abdulaziz's personal portfolio. Python, SQL, Saudi data analysis, dashboards and IoT projects.">
+  <link rel="canonical" href="https://codebyabdulaziz.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abdulaziz">
+  <meta property="og:url" content="https://codebyabdulaziz.github.io/">
+  <meta property="og:title" content="Abdulaziz | Improve your tech with me">
+  <meta property="og:description" content="Python, SQL, Saudi data analysis, dashboards and IoT projects.">
+  <meta property="og:image" content="https://codebyabdulaziz.github.io/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Abdulaziz's portfolio. Improve your tech with me. Python, SQL, dashboards and IoT.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <script src="analytics.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Abdulaziz","url":"https://codebyabdulaziz.github.io/","sameAs":["https://github.com/CodeByAbdulaziz"],"knowsAbout":["Python","SQL","Data analysis","Dashboards","IoT"]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -40,7 +57,7 @@
         <p class="location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-7.4 7-13a7 7 0 0 0-14 0c0 5.6 7 13 7 13Z"/><circle cx="12" cy="8" r="2.5"/></svg>Based in Saudi Arabia</p>
       </div>
       <div class="hero-brand">
-        <img src="az-avatar.png" width="1254" height="1254" alt="AZ logo in blue and green on a navy background" fetchpriority="high">
+        <picture><source srcset="az-avatar.webp" type="image/webp"><img src="az-avatar.png" width="1254" height="1254" alt="AZ logo in blue and green on a navy background" fetchpriority="high"></picture>
         <div class="brand-caption"><span>CodeByAbdulaziz</span><span class="caption-line" aria-hidden="true"></span><span>Build. Learn. Improve.</span></div>
       </div>
       <div class="hero-bottom"><span>Selected projects below</span><span>Python · SQL · Dashboards · IoT</span></div>
@@ -50,12 +67,12 @@
       <div class="section-heading"><div><p class="eyebrow"><span class="section-number">01</span> SELECTED WORK</p><h2 id="work-title">Projects with a purpose.</h2></div><p>From Saudi market data<br>to connected devices.</p></div>
 
       <article class="project project-retail">
-        <div class="project-visual"><div class="image-label"><span>Saudi RetailPulse</span><span>DATA ANALYSIS</span></div><img src="retail-dashboard.jpg" width="1280" height="900" alt="Saudi RetailPulse dashboard showing monthly point-of-sale spending in Saudi riyals" loading="lazy"></div>
+        <div class="project-visual"><div class="image-label"><span>Saudi RetailPulse</span><span>DATA ANALYSIS</span></div><picture><source srcset="retail-dashboard.webp" type="image/webp"><img src="retail-dashboard.jpg" width="1280" height="900" alt="Saudi RetailPulse dashboard showing monthly point-of-sale spending in Saudi riyals" loading="lazy" decoding="async"></picture></div>
         <div class="project-copy"><p class="project-index">PROJECT 01 / DATA</p><h3>Saudi RetailPulse</h3><p>Explore Saudi point-of-sale payments in SAR. This project brings monthly trends, sector and city results, and forecast comparisons into one dashboard.</p><ul class="tags" aria-label="Technologies"><li>Python</li><li>SQL</li><li>Streamlit</li><li>pandas</li></ul><a class="text-link" href="https://github.com/CodeByAbdulaziz/saudi-retailpulse" target="_blank" rel="noopener noreferrer">View project on GitHub</a><details><summary>A closer look <span aria-hidden="true">+</span></summary><div class="detail-content"><p>I checked the data before analysis and compared simple forecasts with gradient boosting. The same-month-last-year method performed best, with a test WAPE of 5.65%.</p><p>Source: Saudi Central Bank point-of-sale data, shared through KAPSARC.</p></div></details></div>
       </article>
 
       <article class="project project-energy">
-        <div class="project-visual"><div class="image-label"><span>Smart Energy Monitor</span><span>IoT &amp; WEB</span></div><img src="energy-dashboard.png" width="1241" height="1264" alt="Smart Energy Monitor dashboard with power readings, energy usage and historical charts" loading="lazy"></div>
+        <div class="project-visual"><div class="image-label"><span>Smart Energy Monitor</span><span>IoT &amp; WEB</span></div><picture><source srcset="energy-dashboard.webp" type="image/webp"><img src="energy-dashboard.png" width="1241" height="1264" alt="Smart Energy Monitor dashboard with power readings, energy usage and historical charts" loading="lazy" decoding="async"></picture></div>
         <div class="project-copy"><p class="project-index">PROJECT 02 / IoT</p><h3>Smart Energy Monitor</h3><p>Track power readings and energy use with a web dashboard. Connect an ESP32 through MQTT or try demo mode without hardware.</p><ul class="tags" aria-label="Technologies"><li>React</li><li>FastAPI</li><li>PostgreSQL</li><li>MQTT</li></ul><a class="text-link" href="https://github.com/CodeByAbdulaziz/smart-energy-monitor" target="_blank" rel="noopener noreferrer">View project on GitHub</a><details><summary>A closer look <span aria-hidden="true">+</span></summary><div class="detail-content"><p>The project includes usage history, alerts, relay controls, and estimated energy cost. It connects a Python backend to a React dashboard and supports ESP32 integration.</p><p>Demo mode uses sample readings. The 24-hour forecast uses historical hourly averages.</p></div></details></div>
       </article>
     </section>
