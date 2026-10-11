@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://www.googletagmanager.com; worker-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; style-src 'self'; img-src 'self' https://www.googletagmanager.com https://*.google-analytics.com; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b1220">
+  <title>PDF Tools | Abdulaziz</title>
+  <meta name="description" content="Merge, compress, extract, rotate and number PDF files in your browser. Your files are never uploaded.">
+  <link rel="canonical" href="https://codebyabdulaziz.github.io/pdf-tools.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abdulaziz">
+  <meta property="og:url" content="https://codebyabdulaziz.github.io/pdf-tools.html">
+  <meta property="og:title" content="PDF Tools | Abdulaziz">
+  <meta property="og:description" content="Merge, compress, extract, rotate and number PDFs in your browser. Your files are never uploaded.">
+  <meta property="og:image" content="https://codebyabdulaziz.github.io/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Abdulaziz's portfolio. Improve your tech with me. Python, SQL, dashboards and IoT.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pdf-tools.css">
+  <script src="vendor/pdf-lib.min.js" defer></script>
+  <script src="pdf-tools-compat.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="analytics.js" defer></script>
+  <script type="module" src="pdf-tools.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="index.html" aria-label="Abdulaziz, home"><span class="brand-letter">AZ<span>.</span></span><span>Abdulaziz</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span class="menu-symbol" aria-hidden="true">+</span></button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#about">About</a>
+        <a class="active" href="pdf-tools.html" aria-current="page">PDF Tools</a>
+        <a class="nav-contact" href="index.html#contact">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="tools-hero container" aria-labelledby="tools-title">
+      <p class="eyebrow">PDF TOOLS</p>
+      <h1 id="tools-title">PDF tools <span>in your browser.</span></h1>
+      <p class="tools-lead">Merge, compress, extract, rotate and number your PDF files. Everything runs on your device, so your files are never uploaded.</p>
+    </section>
+
+    <section class="container tools" aria-label="PDF tools">
+      <noscript><p class="note">These tools need JavaScript to work in your browser.</p></noscript>
+
+      <div class="tab-list" role="tablist" aria-label="Choose a PDF tool">
+        <button class="tab" type="button" role="tab" id="tab-merge" data-tool="merge" aria-controls="panel-merge" aria-selected="true" tabindex="0">Merge</button>
+        <button class="tab" type="button" role="tab" id="tab-compress" data-tool="compress" aria-controls="panel-compress" aria-selected="false" tabindex="-1">Compress</button>
+        <button class="tab" type="button" role="tab" id="tab-extract" data-tool="extract" aria-controls="panel-extract" aria-selected="false" tabindex="-1">Extract pages</button>
+        <button class="tab" type="button" role="tab" id="tab-rotate" data-tool="rotate" aria-controls="panel-rotate" aria-selected="false" tabindex="-1">Rotate</button>
+        <button class="tab" type="button" role="tab" id="tab-images" data-tool="images" aria-controls="panel-images" aria-selected="false" tabindex="-1">Images to PDF</button>
+        <button class="tab" type="button" role="tab" id="tab-numbers" data-tool="numbers" aria-controls="panel-numbers" aria-selected="false" tabindex="-1">Page numbers</button>
+      </div>
+
+      <!-- Merge -->
+      <section class="tool-panel" id="panel-merge" role="tabpanel" aria-labelledby="tab-merge">
+        <div class="tool-intro">
+          <h2>Merge PDFs</h2>
+          <p>Choose two or more PDF files, put them in order, and download one combined PDF.</p>
+        </div>
+        <label class="drop-zone">
+          <input class="sr-only" type="file" id="merge-input" accept="application/pdf,.pdf" multiple>
+          <span class="drop-title">Choose PDF files</span>
+          <span class="drop-hint">or drag and drop them here</span>
+        </label>
+        <ol class="file-list" id="merge-list" aria-label="Files in merge order"></ol>
+        <div class="tool-actions">
+          <button class="button button-primary" type="button" id="merge-run" disabled>Merge and download</button>
+        </div>
+        <p class="status" id="merge-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Compress -->
+      <section class="tool-panel" id="panel-compress" role="tabpanel" aria-labelledby="tab-compress" hidden>
+        <div class="tool-intro">
+          <h2>Compress PDF</h2>
+          <p>Make a PDF smaller by saving each page as a compressed image. This works best for scans, photos and handwritten notes.</p>
+        </div>
+        <label class="drop-zone">
+          <input class="sr-only" type="file" id="compress-input" accept="application/pdf,.pdf">
+          <span class="drop-title">Choose a PDF file</span>
+          <span class="drop-hint">or drag and drop it here</span>
+        </label>
+        <p class="info-line" id="compress-info" aria-live="polite"></p>
+        <fieldset class="choice-group">
+          <legend>Quality</legend>
+          <label class="choice">
+            <input type="radio" name="compress-level" value="high">
+            <span><strong>High quality</strong>150 dpi. Closest to the original.</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="compress-level" value="balanced" checked>
+            <span><strong>Balanced</strong>110 dpi. Good for most files.</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="compress-level" value="smallest">
+            <span><strong>Smallest</strong>80 dpi. Best for sharing by email or chat.</span>
+          </label>
+        </fieldset>
+        <p class="note">Compressed pages are images, so their text can no longer be selected or searched.</p>
+        <div class="tool-actions">
+          <button class="button button-primary" type="button" id="compress-run" disabled>Compress and download</button>
+        </div>
+        <p class="status" id="compress-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Extract -->
+      <section class="tool-panel" id="panel-extract" role="tabpanel" aria-labelledby="tab-extract" hidden>
+        <div class="tool-intro">
+          <h2>Extract pages</h2>
+          <p>Keep only the pages you need and save them as a new PDF.</p>
+        </div>
+        <label class="drop-zone">
+          <input class="sr-only" type="file" id="extract-input" accept="application/pdf,.pdf">
+          <span class="drop-title">Choose a PDF file</span>
+          <span class="drop-hint">or drag and drop it here</span>
+        </label>
+        <p class="info-line" id="extract-info" aria-live="polite"></p>
+        <div class="field">
+          <label for="extract-ranges">Pages to keep</label>
+          <input type="text" id="extract-ranges" placeholder="For example: 1-3, 5, 8-10" inputmode="numeric" autocomplete="off">
+          <p class="hint">Separate pages with commas. Use a dash for a range.</p>
+        </div>
+        <div class="tool-actions">
+          <button class="button button-primary" type="button" id="extract-run" disabled>Extract and download</button>
+        </div>
+        <p class="status" id="extract-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Rotate -->
+      <section class="tool-panel" id="panel-rotate" role="tabpanel" aria-labelledby="tab-rotate" hidden>
+        <div class="tool-intro">
+          <h2>Rotate PDF</h2>
+          <p>Turn pages that were scanned or saved sideways.</p>
+        </div>
+        <label class="drop-zone">
+          <input class="sr-only" type="file" id="rotate-input" accept="application/pdf,.pdf">
+          <span class="drop-title">Choose a PDF file</span>
+          <span class="drop-hint">or drag and drop it here</span>
+        </label>
+        <p class="info-line" id="rotate-info" aria-live="polite"></p>
+        <fieldset class="choice-group">
+          <legend>Rotation</legend>
+          <label class="choice">
+            <input type="radio" name="rotate-angle" value="90" checked>
+            <span><strong>90° clockwise</strong></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="rotate-angle" value="180">
+            <span><strong>180°</strong></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="rotate-angle" value="270">
+            <span><strong>90° counter-clockwise</strong></span>
+          </label>
+        </fieldset>
+        <div class="field">
+          <label class="check"><input type="checkbox" id="rotate-all" checked> Rotate all pages</label>
+          <label for="rotate-pages">Or only these pages</label>
+          <input type="text" id="rotate-pages" placeholder="For example: 2, 4-6" inputmode="numeric" autocomplete="off" disabled>
+        </div>
+        <div class="tool-actions">
+          <button class="button button-primary" type="button" id="rotate-run" disabled>Rotate and download</button>
+        </div>
+        <p class="status" id="rotate-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Images to PDF -->
+      <section class="tool-panel" id="panel-images" role="tabpanel" aria-labelledby="tab-images" hidden>
+        <div class="tool-intro">
+          <h2>Images to PDF</h2>
+          <p>Turn JPG, PNG or WebP images into one PDF, with one image per page.</p>
+        </div>
+        <label class="drop-zone">
+          <input class="sr-only" type="file" id="images-input" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple>
+          <span class="drop-title">Choose images</span>
+          <span class="drop-hint">or drag and drop them here</span>
+        </label>
+        <ol class="file-list" id="images-list" aria-label="Images in page order"></ol>
+        <fieldset class="choice-group">
+          <legend>Page size</legend>
+          <label class="choice">
+            <input type="radio" name="images-size" value="a4" checked>
+            <span><strong>A4 page</strong>Each image is fitted to the page with a margin.</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="images-size" value="original">
+            <span><strong>Image size</strong>Each page matches its image size.</span>
+          </label>
+        </fieldset>
+        <div class="tool-actions">
+          <button class="button button-primary" type="button" id="images-run" disabled>Create PDF and download</button>
+        </div>
+        <p class="status" id="images-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Page numbers -->
+      <section class="tool-panel" id="panel-numbers" role="tabpanel" aria-labelledby="tab-numbers" hidden>
+        <div class="tool-intro">
+          <h2>Add page numbers</h2>
+          <p>Stamp a number on every page of a PDF.</p>
+        </div>
+        <label class="drop-zone">
+          <input class="sr-only" type="file" id="numbers-input" accept="application/pdf,.pdf">
+          <span class="drop-title">Choose a PDF file</span>
+          <span class="drop-hint">or drag and drop it here</span>
+        </label>
+        <p class="info-line" id="numbers-info" aria-live="polite"></p>
+        <div class="field-grid">
+          <div class="field">
+            <label for="numbers-position">Position</label>
+            <select id="numbers-position">
+              <option value="center" selected>Bottom center</option>
+              <option value="left">Bottom left</option>
+              <option value="right">Bottom right</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="numbers-format">Format</label>
+            <select id="numbers-format">
+              <option value="plain">1, 2, 3</option>
+              <option value="page" selected>Page 1 of N</option>
+              <option value="fraction">1 / N</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="numbers-start">Start at</label>
+            <input type="number" id="numbers-start" min="0" step="1" value="1">
+          </div>
+        </div>
+        <div class="tool-actions">
+          <button class="button button-primary" type="button" id="numbers-run" disabled>Add page numbers and download</button>
+        </div>
+        <p class="status" id="numbers-status" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="container footer"><a class="wordmark" href="index.html"><span class="brand-letter">AZ<span>.</span></span><span>Abdulaziz</span></a><p>© <span id="year">2026</span> Abdulaziz</p><div class="footer-links"><a href="privacy.html">Privacy</a><button type="button" data-analytics-preferences aria-controls="analytics-choice" aria-expanded="false" hidden>Analytics choices</button><a href="#main">Back to top</a></div></footer>
+  <section class="analytics-banner" id="analytics-choice" aria-label="Website analytics" hidden>
+    <div class="analytics-copy"><h2>Can I use website analytics?</h2><p>Google Analytics helps me see visits, countries, and which pages people use. It starts only if you accept. <a href="privacy.html">Read about privacy</a>.</p><p class="analytics-status" id="analytics-status" role="status">Analytics is off until you choose.</p></div>
+    <div class="analytics-actions"><button class="button button-outline" type="button" data-analytics-accept>Accept analytics</button><button class="button button-outline" type="button" data-analytics-decline>No thanks</button><button class="analytics-dismiss" type="button" data-analytics-close hidden>Keep my choice</button></div>
+  </section>
+</body>
+</html>
