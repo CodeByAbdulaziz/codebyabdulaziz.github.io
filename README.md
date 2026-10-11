@@ -12,6 +12,8 @@ https://codebyabdulaziz.github.io/
 
 Open `index.html` in a browser. No install or build step is needed.
 
+The PDF tools use JavaScript modules and a worker. Browsers block these when a page is opened straight from disk, so serve the folder instead, for example with `python3 -m http.server`, then open http://localhost:8000/pdf-tools.html.
+
 ## Files
 
 - `index.html`: page content
@@ -23,6 +25,9 @@ Open `index.html` in a browser. No install or build step is needed.
 - `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`: browser and phone icons
 - `og-image.jpg`: preview image when the link is shared (WhatsApp, LinkedIn, X)
 - Image files: logo and project screenshots. Browsers load the small `.webp` files. The `.png` and `.jpg` files are kept for old browsers.
+- `pdf-tools.html`, `pdf-tools.css`, `pdf-tools.js`: the PDF tools page (merge, compress, extract pages, rotate, images to PDF, page numbers). Files are processed in the visitor's browser and are not uploaded.
+- `pdf-tools-compat.js`, `pdf-tools-worker.js`: a small compatibility fix and the worker entry for PDF.js, used by the PDF tools
+- `vendor/`: third-party libraries used by the PDF tools (pdf-lib and PDF.js) and their licenses. See `vendor/README.md`.
 
 ## Hosting
 
