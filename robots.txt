@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://codebyabdulaziz.github.io/qarenha/sitemap.xml
